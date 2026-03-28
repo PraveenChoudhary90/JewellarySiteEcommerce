@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+25&family=Manrope:wght@200..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --blue: #4e00b2;
+    /* --main-bg: #390172; */
+    --main-bg: #081028;
+    --dash-bg: #f8f8f8;
+    --ecom-bg: #f2f6f7e9;
+    --primary-clr: #315833;
+    --ecom-primary-txt: #333;
+    --primary-black: #161616;
+    --salty-orange: #FFA800;
+    --royal-blue: #8A0BFF;
+    --sky-blue: #129BBC;
+    --purple-pink: #DF40C9;
+    --nature-green: #1CC967;
+    --danger-red: #DC4546;
+    --text-color: #222222;
+    --text-light: #F7F7F7;
+    --text-primary: #ddd;
+    --text-primary2: #333;
+    --text-secondary: #666;
+    --text-light-primary: #8d9eb5;
+    --text-light-primary2: #61748f;
+    --ff-inter: "Inter", sans-serif;
+    --ff-playfair: "Playfair Display SC", serif;
+    --ff-jakarta: "Plus Jakarta Sans", sans-serif;
+    --ff-poppins: "Poppins", sans-serif;
+    --ff-heebo: "Heebo", sans-serif;
+    --ff-roboto: "Roboto", sans-serif;
+    --ff-manrope: "Manrope", sans-serif;
+    --ff-jersey: "Jersey 25", sans-serif;
+    --ff-rubik: "Rubik", sans-serif;
+    --ff-ibm: "IBM Plex Sans", sans-serif;
+    --card-radius: 10px;
+    --ss-border: 2px solid #4a3d93;
+    --ss-light-shadow: var(--primary-clr) 0px 2px 8px 0px;
+    --inner-gap: 3rem;
+    --loader-color: #1CC967;
+    /* --card-bg: #fff; */
+    --card-bg: #0B1739;
+}
+

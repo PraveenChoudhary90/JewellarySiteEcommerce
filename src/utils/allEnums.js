@@ -1,0 +1,16 @@
+export const WITHDRAWAL_STATUS_ENUM = {
+  PENDING: "pending",
+  APPROVED: "approved",
+  REJECTED: "rejected",
+};
+
+export const FRANCHISE_STATUS_ENUM = {
+  PENDING: "PENDING",
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+  NOT_REQUESTED: "NOT_REQUESTED",
+};
+export const AUTH_ROLES_ENUM = {
+  ROLE_1: "DISTRIBUTOR",
+  ROLE_2: "FRANCHISEE",
+};
