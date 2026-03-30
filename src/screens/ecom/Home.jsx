@@ -10,6 +10,7 @@ import JewelryGallery from '../../Pages/GallaryPage'
 import JewelryPage from '../../Pages/JwellaryPage'
 import ShopHistory from '../../Pages/Shophistory'
 import JewelryReviewPage from '../../Pages/Reviews'
+import JewelryNewsPage from '../../Pages/LatestNews'
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
     {/* <JewelryPage/> */}
     <ShopHistory/>
     <JewelryReviewPage/>
+    <JewelryNewsPage/>
     {/* <Footer/> */}
     </>
   )
