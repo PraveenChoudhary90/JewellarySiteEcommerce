@@ -1,36 +1,119 @@
-const Footer = () => (
-  <footer className="bg-stone-900 text-stone-400 py-20 px-6">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-stone-800 pb-16">
-      <div className="col-span-1 md:col-span-1">
-        <div className="text-2xl font-serif text-white tracking-widest mb-6">AURUM</div>
-        <p className="text-sm leading-relaxed">Defining luxury since 1924. Quality you can feel, elegance you can see.</p>
+import React from 'react';
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaXTwitter, 
+  FaYoutube, 
+  FaLocationDot, 
+  FaPhone, 
+  FaClock, 
+  FaEnvelope 
+} from 'react-icons/fa6';
+
+import { MainContent } from "../../constants/MainContent.js";
+
+const Footer = () => {
+  return (
+    <footer className="bg-[#111111] text-[#999999] pt-16 pb-12 px-6 font-sans border-t border-stone-900">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 pb-20">
+        
+        {/* Column 1 */}
+        <div>
+          <h4 className="text-white uppercase text-[11px] tracking-[0.2em] font-bold mb-8">My Account</h4>
+          <ul className="space-y-4 text-[13px]">
+            {["My account","Wishlist","Cart","Checkout","Maintenance Mode","Register Now"].map((item, i) => (
+              <li key={i} className="hover:text-white cursor-pointer flex items-center gap-2 transition">
+                <span className="text-[10px] opacity-40">•</span> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 2 */}
+        <div>
+          <h4 className="text-white uppercase text-[11px] tracking-[0.2em] font-bold mb-8">Information</h4>
+          <ul className="space-y-4 text-[13px]">
+            {["About Us","Our Blog","FAQ","Contacts","Terms & Conditions","Refund Policy"].map((item, i) => (
+              <li key={i} className="hover:text-white cursor-pointer flex items-center gap-2 transition">
+                <span className="text-[10px] opacity-40">•</span> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 3: Dynamic Contacts */}
+        <div className="space-y-6">
+          <h4 className="text-white uppercase text-[11px] tracking-[0.2em] font-bold mb-8">
+            Our Contacts
+          </h4>
+
+          <div className="space-y-4 text-[13px]">
+            <div className="flex items-start gap-4">
+              <FaLocationDot className="mt-1 text-white text-[14px]" />
+              <p>{MainContent.address}</p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <FaPhone className="text-white text-[14px]" />
+              <a href={`tel:${MainContent.contactNo}`} className="hover:text-white">
+                {MainContent.contactNo}
+              </a>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <FaClock className="text-white text-[14px]" />
+              <p>Mon - Sat: 10:30 - 18:30</p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <FaEnvelope className="text-white text-[14px]" />
+              <a href={`mailto:${MainContent.email}`} className="hover:text-white">
+                {MainContent.email}
+              </a>
+            </div>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-3 pt-4">
+            {[FaFacebookF, FaInstagram, FaXTwitter, FaYoutube].map((Icon, i) => (
+              <div key={i} className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-stone-400">
+                <Icon size={14} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div>
-        <h4 className="text-white uppercase text-[10px] tracking-widest mb-6">Shop</h4>
-        <ul className="space-y-4 text-xs">
-          <li>Necklaces</li>
-          <li>Rings</li>
-          <li>Bracelets</li>
-        </ul>
+
+      {/* Bottom Footer */}
+      <div className="max-w-7xl mx-auto pt-10 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center">
+        
+        <p className="text-[11px] tracking-wider text-stone-600 mb-6 md:mb-0">
+          © {new Date().getFullYear()} {MainContent.appName}. ALL RIGHTS RESERVED.
+        </p>
+
+        {/* Payment Icons */}
+        <div className="flex items-center gap-2">
+          <div className="bg-white rounded px-1.5 py-0.5">
+            <span className="text-[#1A1F71] font-bold italic text-[10px]">VISA</span>
+          </div>
+
+          <div className="bg-[#111111] border border-stone-800 rounded px-1 py-0.5 flex items-center gap-0.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#EB001B]"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#F79E1B] -ml-1.5 opacity-80"></div>
+          </div>
+
+          <div className="bg-white rounded px-1.5 py-0.5 flex">
+            <span className="text-[#003087] font-bold italic text-[10px]">Pay</span>
+            <span className="text-[#009CDE] font-bold italic text-[10px]">Pal</span>
+          </div>
+
+          <div className="bg-[#0070D1] rounded px-1.5 py-0.5">
+            <span className="text-white font-bold text-[9px]">AMEX</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4 className="text-white uppercase text-[10px] tracking-widest mb-6">Service</h4>
-        <ul className="space-y-4 text-xs">
-          <li>Shipping</li>
-          <li>Returns</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="text-white uppercase text-[10px] tracking-widest mb-6">Newsletter</h4>
-        <input type="text" placeholder="Your email" className="bg-transparent border-b border-stone-700 w-full py-2 text-xs focus:outline-none focus:border-amber-600 transition" />
-      </div>
-    </div>
-    <div className="max-w-7xl mx-auto pt-8 flex justify-between text-[10px] uppercase tracking-[0.2em]">
-      <p>© 2026 Aurum Jewelry</p>
-      <p>Privacy Policy</p>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

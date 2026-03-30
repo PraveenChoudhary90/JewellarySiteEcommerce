@@ -43,7 +43,6 @@ export const AuthenticatedRoutes = {
 };
 
 export const EcomRoutes = {
-  HOME: "/",
   PRODUCT_DETAIL: "/product/:productId",
   ALL_CATEGORIES: "/all-categories",
   VIEW_CART: "/view-cart",
@@ -59,4 +58,12 @@ export const EcomRoutes = {
   ABOUT_US: "/about-us",
   FAQ: "/faq",
   ORDER_SUCCESS: "/order-success",
+  HOME: "/home",
+  Landing:"/",
+  Shop:"/shop",
+  Blog:"/blog",
+  Mega:"/mega",
+  About:"/about",
+  Contact:"/contact"
+  
 };
