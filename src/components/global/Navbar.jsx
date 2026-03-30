@@ -88,7 +88,7 @@ const Navbar = () => {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
               <path d="M22 16.92v3a2 2 0 01-2.18 2..." />
             </svg>
-            <span>{MainContent.contactNo}</span>
+            <span>📞{MainContent.contactNo}</span>
           </div>
 
           {/* Navigation Links */}

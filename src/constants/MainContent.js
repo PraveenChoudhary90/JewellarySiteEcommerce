@@ -12,7 +12,7 @@ export const MainContent = {
   appURL: "https://www.netrootx.com/",
   contactNo: "+919123456789",
   email: "info@netrootx.com",
-  address: "B-1/162 (A), Kalyani, Nadia, West Bengal, Pin - 741235",
+  address: "B-1/162 Mp Nagar Bhopal(MP), Pin - 741235",
   appDescription:
     "NetrootX is a revolutionary platform that empowers individuals to take control of their digital future through innovative technology and community-driven solutions.",
 };
