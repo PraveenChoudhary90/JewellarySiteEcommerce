@@ -7,6 +7,7 @@ const Hero = () => {
 
   const slides = [
     {
+      
       id: 1,
       image: img1,
       title: "Pearls From Heaven",
