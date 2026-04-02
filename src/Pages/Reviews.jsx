@@ -35,14 +35,14 @@ const jewelryReviews = [
     rating: 5,
     img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
   },
-  {
-    id: 5,
-    name: "Mehak Jain",
-    item: "Evil Eye Silver Bracelet",
-    comment: "Absolutely love the design! The silver quality is top-notch and hasn't tarnished at all. The styles here are so unique and trendy compared to other brands.",
-    rating: 5,
-    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
-  }
+  // {
+  //   id: 5,
+  //   name: "Mehak Jain",
+  //   item: "Evil Eye Silver Bracelet",
+  //   comment: "Absolutely love the design! The silver quality is top-notch and hasn't tarnished at all. The styles here are so unique and trendy compared to other brands.",
+  //   rating: 5,
+  //   img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+  // }
 ];
 
 const JewelryReviewPage = () => {
