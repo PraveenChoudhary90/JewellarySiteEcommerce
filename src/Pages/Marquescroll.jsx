@@ -18,7 +18,7 @@ const FullEcommerceMarquee = () => {
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           ease: "linear",
-          duration: 10, // slow premium feel
+          duration: 12, // slow premium feel
           repeat: Infinity,
         }}
       >

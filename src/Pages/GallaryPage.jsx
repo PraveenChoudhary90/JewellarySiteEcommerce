@@ -37,7 +37,7 @@ const JewelryGallery = () => {
 
             {/* Glassmorphism Text Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-visible">
                  {/* Text with 3D lift effect */}
                 <h3 className="text-white text-xl md:text-2xl font-light tracking-[0.2em] uppercase transition-all duration-500 group-hover:scale-125 group-hover:-translate-y-4 drop-shadow-lg">
                   {item.name}

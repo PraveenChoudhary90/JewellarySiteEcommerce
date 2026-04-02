@@ -1,245 +1,216 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const ProductGrid = () => {
   const [activeTab, setActiveTab] = useState('NEW ARRIVED');
+  const [showAll, setShowAll] = useState(false);
 
   const tabs = ['NEW ARRIVED', 'FEATURED', 'ON SALE'];
 
   const products = [
-  {
-    id: 1,
-    title: "Fleur De Lis Key Brooch",
-    category: "BROOCHES · OTHER",
-    description: "Brilliant beacons of optimism and hope, Tiffany Keys are radiant symbols of a bright future.",
-    price: "$750",
-    badges: ["NEW", "FEATURED"],
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600"
-  },
-  {
-    id: 2,
-    title: "Starfish Brooch",
-    category: "BROOCHES · OTHER",
-    description: "The starfish evokes life beneath the waves and in the celestial heavens. Brooch in platinum with pavé diamonds.",
-    price: "$850",
-    badges: ["NEW", "SALE"],
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600"
-  },
-  {
-    id: 3,
-    title: "Layer Cake Necklace Set",
-    category: "SETS",
-    description: "Fine jewelry deserves fair prices. And so do you. All of our jewelry is born, raised, and handmade in NYC.",
-    price: "$1,400",
-    badges: ["NEW", "FEATURED"],
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600"
-  },
-  {
-    id: 4,
-    title: "The Texture Ring Set",
-    category: "SETS",
-    description: "Mini Infinity Ring meets Modern Cigar Band for the perfect pair.",
-    price: "$2,500",
-    badges: ["NEW"],
-    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&q=80&w=600"
-  },
-  {
-    id: 5,
-    title: "Color By The Yard Emerald Pendant",
-    category: "NECKLACES",
-    description: "Style this adjustable chain with other pendants of varying lengths for a look that's sure to turn heads.",
-    price: "$1,700 — $1,800",
-    badges: ["NEW", "SALE"],
-    image: "https://plus.unsplash.com/premium_photo-1709033404514-c3953af680b4?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 6,
-    title: "Heart Locket",
-    category: "LOCKET · OTHER",
-    description: "This Tiffany locket will become your new favorite memento and cherished keepsake.",
-    price: "$550",
-    badges: ["NEW", "FEATURED"],
-    image: "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 7,
-    title: "Diamond Solitaire Ring",
-    category: "RINGS",
-    description: "A classic diamond ring that adds elegance to any outfit.",
-    price: "$2,200",
-    badges: ["NEW", "SALE"],
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 8,
-    title: "Pearl Drop Earrings",
-    category: "EARRINGS",
-    description: "Elegant pearl earrings that are perfect for formal occasions.",
-    price: "$1,000",
-    badges: ["NEW"],
-    image: "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 9,
-    title: "Gold Choker",
-    category: "NECKLACES",
-    description: "Minimalist gold choker that pairs well with layered necklaces.",
-    price: "$1,500",
-    badges: ["NEW", "FEATURED"],
-    image: "https://plus.unsplash.com/premium_photo-1661645473770-90d750452fa0?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 10,
-    title: "Charm Bracelet",
-    category: "BRACELETS",
-    description: "Add your favorite charms for a personal touch.",
-    price: "$750",
-    badges: ["NEW", "SALE"],
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 11,
-    title: "Stackable Rings Set",
-    category: "RINGS",
-    description: "Mix and match these delicate rings for a modern look.",
-    price: "$1,200",
-    badges: ["NEW"],
-    image: "https://images.unsplash.com/photo-1631982690223-8aa4be0a2497?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 12,
-    title: "Hoop Earrings",
-    category: "EARRINGS",
-    description: "Timeless hoops that elevate your everyday style.",
-    price: "$650",
-    badges: ["NEW", "FEATURED"],
-    image: "https://images.unsplash.com/photo-1585960622850-ed33c41d6418?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 13,
-    title: "Oval Sapphire Ring",
-    category: "RINGS",
-    description: "A beautiful sapphire set in a delicate gold band.",
-    price: "$2,800",
-    badges: ["NEW", "SALE"],
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 14,
-    title: "Citrine Drop Earrings",
-    category: "EARRINGS",
-    description: "Sun-kissed citrine earrings for a touch of warmth.",
-    price: "$1,100",
-    badges: ["NEW"],
-    image: "https://images.unsplash.com/photo-1615197419962-90f21da0956d?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 15,
-    title: "Pearl Strand Necklace",
-    category: "NECKLACES",
-    description: "Classic pearls for timeless elegance.",
-    price: "$2,000",
-    badges: ["NEW", "FEATURED"],
-    image: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=500&auto=format&fit=crop&q=60"
-  },
-  {
-    id: 16,
-    title: "Emerald Tennis Bracelet",
-    category: "BRACELETS",
-    description: "Vibrant emeralds in a sleek bracelet design.",
-    price: "$3,200",
-    badges: ["NEW", "SALE"],
-    image: "https://plus.unsplash.com/premium_photo-1681276168324-a6f1958aa191?w=500&auto=format&fit=crop&q=60"
-  }
-];
+    {
+      id: 1,
+      title: "Fleur De Lis Key Brooch",
+      category: "BROOCHES · OTHER",
+      description: "Brilliant beacons of optimism and hope, Tiffany Keys are radiant symbols of a bright future.",
+      price: "$750",
+      badges: ["NEW", "FEATURED"],
+      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600",
+      hoverImage: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 2,
+      title: "Starfish Brooch",
+      category: "BROOCHES · OTHER",
+      description: "The starfish evokes life beneath the waves and in the celestial heavens.",
+      price: "$850",
+      badges: ["NEW", "SALE"],
+      image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600",
+      hoverImage: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      id: 3,
+      title: "Layer Cake Necklace Set",
+      category: "SETS",
+      description: "Fine jewelry deserves fair prices.",
+      price: "$1,400",
+      badges: ["NEW", "FEATURED"],
+      image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600",
+      hoverImage: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      id: 4,
+      title: "The Texture Ring Set",
+      category: "SETS",
+      description: "Perfect modern ring pair.",
+      price: "$2,500",
+      badges: ["NEW"],
+      image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&q=80&w=600",
+      hoverImage: "https://images.unsplash.com/photo-1569397288884-4d43d6738fbd?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 5,
+      title: "Emerald Pendant",
+      category: "NECKLACES",
+      description: "Stylish layered pendant.",
+      price: "$1,700",
+      badges: ["NEW", "SALE"],
+      image: "https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5lY2tsYWNlfGVufDB8fDB8fHww",
+      hoverImage: "https://plus.unsplash.com/premium_photo-1709033404514-c3953af680b4?blur=10"
+    },
+    {
+      id: 6,
+      title: "Heart Locket",
+      category: "LOCKET",
+      description: "A cherished keepsake.",
+      price: "$550",
+      badges: ["NEW", "FEATURED"],
+      image: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmVja2xhY2V8ZW58MHx8MHx8fDA%3D",
+      hoverImage: "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?blur=10"
+    },
+    {
+      id: 7,
+      title: "Diamond Ring",
+      category: "RINGS",
+      description: "Elegant diamond ring.",
+      price: "$2,200",
+      badges: ["NEW", "SALE"],
+      image: "https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmluZ3xlbnwwfHwwfHx8MA%3D%3D",
+      hoverImage: "https://plus.unsplash.com/premium_photo-1670537037688-94a5428256b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+      id: 8,
+      title: "Pearl Earrings",
+      category: "EARRINGS",
+      description: "Perfect for occasions.",
+      price: "$1,000",
+      badges: ["NEW"],
+      image: "https://plus.unsplash.com/premium_photo-1675107359685-f268487a3a46?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWFycmluZ3N8ZW58MHx8MHx8fDA%3D",
+      hoverImage: "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?blur=10"
+    }
+  ];
+
+  // Preload hover images for all products
+  useEffect(() => {
+    products.forEach(product => {
+      const img = new Image();
+      img.src = product.hoverImage;
+    });
+  }, []);
 
   // Filter products based on active tab
   const filteredProducts = products.filter(product => {
-    if(activeTab === 'NEW ARRIVED') return product.badges.includes("NEW");
-    if(activeTab === 'FEATURED') return product.badges.includes("FEATURED");
-    if(activeTab === 'ON SALE') return product.badges.includes("SALE"); // assuming "SALE" badge
+    if (activeTab === 'NEW ARRIVED') return product.badges.includes("NEW");
+    if (activeTab === 'FEATURED') return product.badges.includes("FEATURED");
+    if (activeTab === 'ON SALE') return product.badges.includes("SALE");
     return true;
   });
 
+  const visibleProducts = showAll ? filteredProducts : filteredProducts.slice(0, 4);
+
   return (
-    <section className="w-full font-sans bg-white pt-24 pb-10">
-      
-      {/* Section Title */}
-      <div className="text-center mb-10">
-        <h2 className="text-[38px] font-light text-[#111111] tracking-wide">
-          Luxury Jewelry
-        </h2>
+    <section className="w-full font-sans bg-[#fcfcfc] pt-24 pb-16 overflow-hidden">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-[42px] font-light text-[#111] tracking-tight">
+          Luxury Collection
+        </motion.h2>
+        <div className="w-20 h-[1px] bg-[#C19A5B] mx-auto mt-4"></div>
       </div>
 
-      {/* Tabs Menu */}
-      <div className="w-full border-y border-gray-100 flex justify-center">
-        <div className="flex gap-10 md:gap-16 pt-3">
+      {/* Tabs */}
+      <div className="w-full border-y bg-white flex justify-center sticky top-0 z-10">
+        <div className="flex gap-12 pt-4">
           {tabs.map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`pb-3 text-[11px] tracking-[0.15em] uppercase transition-colors relative
-                ${activeTab === tab 
-                  ? 'text-[#111111] font-semibold' 
-                  : 'text-gray-400 font-medium hover:text-[#111111]'}`}
+              onClick={() => { setActiveTab(tab); setShowAll(false); }}
+              className={`pb-3 text-[11px] tracking-[3px] uppercase transition-all duration-500 relative ${activeTab === tab ? 'text-black font-bold' : 'text-gray-400'}`}
             >
               {tab}
-              {activeTab === tab && (
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#111111]"></span>
-              )}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Product Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="group cursor-pointer flex flex-col h-full">
-              
-              {/* Image */}
-              <div className="relative overflow-hidden bg-[#F9F9F9] aspect-[4/5] flex items-center justify-center">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                />
-                
-                {/* Badges */}
-                <div className="absolute top-4 right-4 flex flex-col gap-1 z-10">
-                  {product.badges.map((badge, idx) => (
-                    <span key={idx} className="bg-[#111111] text-white text-[9px] font-semibold tracking-widest px-2 py-1 uppercase">
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {visibleProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </motion.div>
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+        {/* Show More / Show Less */}
+        <div className="text-center mt-16">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowAll(!showAll)}
+            className="px-12 py-4 border border-black text-[11px] tracking-[3px] uppercase hover:bg-black hover:text-white transition-all duration-500 shadow-lg"
+          >
+            {showAll ? "Show Less" : "Explore All Products"}
+          </motion.button>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-              {/* Content */}
-              <div className="mt-6 flex flex-col flex-grow space-y-2">
-                <p className="text-[10px] tracking-[0.2em] text-[#C19A5B] font-semibold uppercase">
-                  {product.category}
-                </p>
-                <h3 className="text-xl font-medium text-gray-800 leading-tight group-hover:text-gray-600 transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-                  {product.description}
-                </p>
-                <p className="text-lg font-medium text-gray-700 pt-2 mt-auto">
-                  {product.price}
-                </p>
-              </div>
+// Product Card Component
+const ProductCard = ({ product }) => {
+  const [hovered, setHovered] = useState(false);
 
-            </div>
+  return (
+    <motion.div
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      layout
+      whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
+      className="group flex flex-col bg-white p-2 shadow-sm hover:shadow-2xl transition-shadow duration-500 perspective-1000"
+      style={{ transformStyle: 'preserve-3d' }}
+    >
+      {/* Image */}
+      <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-gray-100">
+        <motion.img
+          key={hovered ? product.hoverImage : product.image} // important to force update
+          src={hovered ? product.hoverImage : product.image}
+          alt={product.title}
+          className="w-full h-full object-cover"
+          initial={{ scale: 1, opacity: 0 }}
+          animate={{ scale: hovered ? 1.05 : 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+
+        {/* Badges */}
+        <div className="absolute top-2 left-2 flex flex-col gap-1">
+          {product.badges.map((badge, index) => (
+            <span
+              key={index}
+              className={`text-[9px] px-2 py-1 uppercase font-bold rounded-sm ${
+                badge === "NEW"
+                  ? "bg-[#C19A5B] text-white"
+                  : badge === "FEATURED"
+                  ? "bg-blue-500 text-white"
+                  : badge === "SALE"
+                  ? "bg-red-500 text-white"
+                  : "bg-gray-500 text-white"
+              }`}
+            >
+              {badge}
+            </span>
           ))}
         </div>
       </div>
 
-    </section>
+      {/* Info */}
+      <div className="mt-6 space-y-2 flex flex-col flex-grow px-2">
+        <p className="text-[10px] text-[#C19A5B] uppercase tracking-[2px] font-semibold">{product.category}</p>
+        <h3 className="text-md font-normal text-[#222]">{product.title}</h3>
+        <p className="text-xs text-gray-400 line-clamp-2">{product.description}</p>
+        <p className="mt-auto pt-2 text-lg font-light">{product.price}</p>
+      </div>
+    </motion.div>
   );
 };
 

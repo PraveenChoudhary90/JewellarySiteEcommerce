@@ -17,7 +17,7 @@ const ContactPage = () => {
           >
             Get In Touch
           </motion.span>
-          <h2 className="text-4xl md:text-6xl font-extralight text-zinc-900 mt-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extralight text-zinc-900 mt-4 tracking-tight">
             Let’s Create Something <span className="italic font-serif">Timeless</span>
           </h2>
         </div>
@@ -128,7 +128,7 @@ const ContactPage = () => {
               <motion.button
                 whileHover={{ scale: 1.01, backgroundColor: "#000" }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-zinc-900 text-white py-5 rounded-2xl font-bold tracking-[2px] uppercase flex items-center justify-center gap-3 shadow-lg shadow-zinc-300 transition-all"
+                className="w-full bg-zinc-900 text-white py-4 rounded-2xl font-bold tracking-[2px] uppercase flex items-center justify-center gap-3 shadow-lg shadow-zinc-300 transition-all"
               >
                 Send Inquiry <Send size={18} />
               </motion.button>
